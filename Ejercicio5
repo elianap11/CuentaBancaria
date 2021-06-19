@@ -1,0 +1,17 @@
+package Ejercicio5;
+
+public class Ejercicio5 {
+
+    public static void main(String[] args) {
+
+        CuentaBancaria cuentaBancaria = new CuentaBancaria();
+        CuentaService cuentaService = new CuentaService();
+
+        cuentaService.crearCuenta(cuentaBancaria);
+        cuentaService.ingreso(cuentaBancaria);
+        cuentaService.retiro(cuentaBancaria);
+        cuentaService.extraccionRapida(cuentaBancaria);
+        cuentaService.consultarSaldo(cuentaBancaria);
+        cuentaService.mostrarDatos(cuentaBancaria);
+    }
+}
