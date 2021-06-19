@@ -1,0 +1,47 @@
+package Ejercicio5;
+
+public class CuentaBancaria {
+    
+    //Declaro atributos
+    private int numeroCuenta;
+    private long dni;
+    private double saldo;
+    
+    //Constructor con parámetros
+    public CuentaBancaria(int numeroCuenta, long dni, double saldo) {
+        this.numeroCuenta = numeroCuenta;
+        this.dni = dni;
+        this.saldo = saldo;
+    }
+   
+   //Constructor vacío
+    public CuentaBancaria() {
+    }
+
+   //Métodos get y set
+
+    public int getNumeroCuenta() {
+        return numeroCuenta;
+    }
+
+    public void setNumeroCuenta(int numeroCuenta) {
+        this.numeroCuenta = numeroCuenta;
+    }
+
+    public long getDni() {
+        return dni;
+    }
+
+    public void setDni(long dni) {
+        this.dni = dni;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+}
