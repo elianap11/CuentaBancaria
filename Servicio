@@ -1,0 +1,70 @@
+package Ejercicio5;
+
+import java.util.Scanner;
+
+public class CuentaService {
+
+    Scanner leer = new Scanner(System.in);
+
+   //método para crear el objeto cuenta. 
+    public CuentaBancaria crearCuenta(CuentaBancaria cuentaBancaria) {
+
+
+        //pido los datos al usuario y los seteo en la variable del objeto
+        System.out.print("Ingrese su número de cuenta: ");
+        cuentaBancaria.setNumeroCuenta(leer.nextInt());
+        System.out.print("Ingrese su número de DNI: ");
+        cuentaBancaria.setDni(leer.nextLong());
+        System.out.print("Ingrese su saldo: ");
+        cuentaBancaria.setSaldo(leer.nextDouble());
+        return cuentaBancaria;
+    }
+
+    //depósito
+    public void ingreso(CuentaBancaria cuentaBancaria) {
+        System.out.print("Escriba el monto que quiere depositar: ");
+        double ingreso = leer.nextDouble();
+        double saldoActual;
+        saldoActual = (ingreso + cuentaBancaria.getSaldo());
+        cuentaBancaria.setSaldo(saldoActual);
+    }
+    
+    //extracción
+    public void retiro(CuentaBancaria cuentaBancaria) {
+        System.out.print("Escriba el monto que quiere extraer: ");
+        double retiro = leer.nextDouble();
+        if (cuentaBancaria.getSaldo() > retiro) {
+            double saldoActual2 = (cuentaBancaria.getSaldo() - retiro);
+            cuentaBancaria.setSaldo(saldoActual2);
+        } else {
+            System.out.println("No tiene esa cantidad de dinero para retirar");
+            cuentaBancaria.setSaldo(0);
+        }
+    }
+    
+    //extracción rápida
+    public void extraccionRapida(CuentaBancaria cuentaBancaria){
+        System.out.print("Se le permitirá extraer hasta un 20% de su sueldo. ¿Cuánto desea sacar? ");
+        double extraer = leer.nextDouble();
+        if (extraer > (cuentaBancaria.getSaldo() * 0.2)) {
+            System.out.println("No puede sacar esa cantidad.");
+        } else {
+            double porcentaje = cuentaBancaria.getSaldo() - extraer;
+            cuentaBancaria.setSaldo(porcentaje);
+        }
+    }
+
+    //consulta de saldo
+    public void consultarSaldo(CuentaBancaria cuentaBancaria) {
+        System.out.println(" ");
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("Su saldo es: " + cuentaBancaria.getSaldo());
+    }
+
+    public void mostrarDatos(CuentaBancaria cuentaBancaria) {
+        System.out.println(" ");
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("Su número de cuenta es: " + cuentaBancaria.getNumeroCuenta());
+        System.out.println("Su DNI es: " + cuentaBancaria.getDni());
+    }
+}
